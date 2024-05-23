@@ -105,6 +105,7 @@ def askNum():
         try:
             userInput = int(input("Enter a number: "))
             return userInput
+        # Making sure the user only inputs a number
         except ValueError:
             print("Incorrect Input!")
 
@@ -119,15 +120,16 @@ def askQuestion():
     elif chosen_diff == 'hard':
         x = random.randint(1, 1000)
         y = random.randint(1, 1000)
-
+ #Asks the math question
     print(f"What is {x} x {y}?")
 
     user_answer = askNum()
 # Does the math for the questions
     if user_answer == x * y:
+        print("Correct!")
         return 1
     else:
-        print("Incorrect!")
+        print("Incorrect! The correct answer is", x * y)
         return 0
 
 # Adds a point if the user gets the answer correct
@@ -137,4 +139,24 @@ for _ in range(amount):
 
 print(f"You got {correct} correct out of {amount}")
 
-def player_result
+# Displays the player their results
+def player_result(result):
+    while True:
+        results = input(result).lower()
+
+    # checks user response, question
+    # repeats if users don't enter yes / no
+        if results in ["yes", "y"]:
+            return "yes"
+        elif results in ["no", "n"]:
+            return "no"
+        else:
+            print('Please enter yes / no')
+
+printed_result = player_result("Would you like to see your results?")
+if printed_result == 'yes':
+    # Shows the user their percent of questions they got correct
+    print("You got",correct/amount*100,"% correct")
+elif printed_result == 'no':
+    print('Thank you for playing!')
+    quit()
