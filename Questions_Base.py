@@ -158,5 +158,10 @@ if printed_result == 'yes':
     # Shows the user their percent of questions they got correct
     print("You got",correct/amount*100,"% correct")
 elif printed_result == 'no':
+    # IF they do not want to see their results, the program thanks them for playing then ends the game
     print('Thank you for playing!')
     quit()
+    
+    
+    
+    #############ADDDDDD A FUNCTION TO RESTART THE GAME #################
