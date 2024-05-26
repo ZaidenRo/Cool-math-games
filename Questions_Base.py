@@ -150,5 +150,5 @@ def play_again():
 while True:
     play_game()
     if not play_again():
-        print('Goodbye')
+        print('Thank you for playing!')
         break
