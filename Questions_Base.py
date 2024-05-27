@@ -1,32 +1,23 @@
 import random
 import datetime
 
-
-##############################
-# Prog:Cool Math Games        #
-# Purpose:To make a quiz game for teachers to use at school #
-# Author:zaiden.roets@papamoacollege.school.nz#
-# Date:14/05/2024             #
-##############################
-
 def play_game():
     # Welcomes the user
     print('''
-    ░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗  ████████╗░█████╗░  ░█████╗░░█████╗░░█████╗░██╗░░░░░
-    ░██║░░██╗░░██║██╔════╝██║░░░░░██╔══██╗██╔══██╗████╗░████║██╔════╝  ╚══██╔══╝██╔══██╗  ██╔══██╗██╔══██╗██╔══██╗██║░░░░░
-    ░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░╚═╝██║░░██║██╔████╔██║█████╗░░  ░░░██║░░░██║░░██║  ██║░░╚═╝██║░░██║██║░░██║██║░░░░░
-    ░░████╔═████║░██╔══╝░░██║░░░░░██║░░██╗██║░░██║██║╚██╔╝██║██╔══╝░░  ░░░██║░░░██║░░██║  ██║░░██╗██║░░██║██║░░██║██║░░░░░
-    ░░╚██╔╝░╚██╔╝░███████╗███████╗╚█████╔╝╚█████╔╝██║░╚═╝░██║███████╗  ░░░██║░░░╚█████╔╝  ╚█████╔╝╚█████╔╝╚█████╔╝███████╗
-    ░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚══════╝  ░░░╚═╝░░░░╚════╝░  ░╚════╝░░╚════╝░░╚════╝░╚══════╝
+        ░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗  ████████╗░█████╗░  ░█████╗░░█████╗░░█████╗░██╗░░░░░
+        ░██║░░██╗░░██║██╔════╝██║░░░░░██╔══██╗██╔══██╗████╗░████║██╔════╝  ╚══██╔══╝██╔══██╗  ██╔══██╗██╔══██╗██╔══██╗██║░░░░░
+        ░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░╚═╝██║░░██║██╔████╔██║█████╗░░  ░░░██║░░░██║░░██║  ██║░░╚═╝██║░░██║██║░░██║██║░░░░░
+        ░░████╔═████║░██╔══╝░░██║░░░░░██║░░██╗██║░░██║██║╚██╔╝██║██╔══╝░░  ░░░██║░░░██║░░██║  ██║░░██╗██║░░██║██║░░██║██║░░░░░
+        ░░╚██╔╝░╚██╔╝░███████╗███████╗╚█████╔╝╚█████╔╝██║░╚═╝░██║███████╗  ░░░██║░░░╚█████╔╝  ╚█████╔╝╚█████╔╝╚█████╔╝███████╗
+        ░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚══════╝  ░░░╚═╝░░░░╚════╝░  ░╚════╝░░╚════╝░░╚════╝░╚══════╝
 
-    ███╗░░░███╗░█████╗░████████╗██╗░░██╗  ░██████╗░░█████╗░███╗░░░███╗███████╗░██████╗
-    ████╗░████║██╔══██╗╚══██╔══╝██║░░██║  ██╔════╝░██╔══██╗████╗░████║██╔════╝██╔════╝
-    ██╔████╔██║███████║░░░██║░░░███████║  ██║░░██╗░███████║██╔████╔██║█████╗░░╚█████╗░
-    ██║╚██╔╝██║██╔══██║░░░██║░░░██╔══██║  ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░░╚═══██╗
-    ██║░╚═╝░██║██║░░██║░░░██║░░░██║░░██║  ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗██████╔╝
-    ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝  ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═════╝░️''')
+        ███╗░░░███╗░█████╗░████████╗██╗░░██╗  ░██████╗░░█████╗░███╗░░░███╗███████╗░██████╗
+        ████╗░████║██╔══██╗╚══██╔══╝██║░░██║  ██╔════╝░██╔══██╗████╗░████║██╔════╝██╔════╝
+        ██╔████╔██║███████║░░░██║░░░███████║  ██║░░██╗░███████║██╔████╔██║█████╗░░╚█████╗░
+        ██║╚██╔╝██║██╔══██║░░░██║░░░██╔══██║  ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░░╚═══██╗
+        ██║░╚═╝░██║██║░░██║░░░██║░░░██║░░██║  ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗██████╔╝
+        ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝  ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═════╝░️''')
 
-    # Checks if user enters yes(y) or no (n)
     def yes_no(question):
         while True:
             response = input(question).lower()
@@ -37,26 +28,21 @@ def play_game():
             else:
                 print('Please enter yes / no')
 
-    # Instructions for the game
     def instruction():
         print('''In this math game you will be challenged on your statistics knowledge.
         You will be asked how many questions you want to answer, it ranges from 1-10 mathematical questions.
         You will have the option to see your overall results after you have completed the questions.''')
 
-    # Asks the user if they would like to see the instructions.
     want_instructions = yes_no('Do you want to read the instructions?:')
 
-    # Checks if user enters yes(y) or no (n)
     if want_instructions == "yes":
         instruction()
 
     def question_amount():
-        # Asks the user how many questions they would like to answer
         while True:
             try:
                 how_many = int(
                     input('How many questions would you like to answer, please choose a number from 1 - 20: '))
-                # Makes sure the user chose a number between 1 and 20
                 if 1 <= how_many <= 20:
                     return how_many
                 else:
@@ -64,10 +50,8 @@ def play_game():
             except ValueError:
                 print("That's not a valid number, please try again.")
 
-    # Asks the user how many questions they would like to answer
     amount = question_amount()
 
-    # Asks the user how hard the difficulty they want to be (easy, normal, hard)
     def question_difficulty(difficulty):
         while True:
             diff = input(difficulty).lower()
@@ -77,7 +61,6 @@ def play_game():
             else:
                 print("Please choose easy, normal or hard")
 
-    # Input for game difficulty
     chosen_diff = question_difficulty('''Please choose a difficulty.
     Easy
     Normal
@@ -107,14 +90,18 @@ def play_game():
         user_answer = ask_num()
         if user_answer == x * y:
             print("Correct!")
-            return 1
+            return (1, f"{x} x {y} = {x*y}")
         else:
             print(f"Incorrect! The correct answer is {x * y}")
-            return 0
+            return (0, f"{x} x {y} = {x*y}")
+
+    results_history = []
 
     correct = 0
     for _ in range(amount):
-        correct += ask_question()
+        result, question = ask_question()
+        results_history.append((question, "Correct" if result else "Incorrect"))
+        correct += result
 
     print(f"You got {correct} correct out of {amount}")
 
@@ -131,6 +118,9 @@ def play_game():
     printed_result = player_result("Would you like to see your results?")
     if printed_result == 'yes':
         print(f"You got {correct / amount * 100}% correct")
+        print("Results History:")
+        for question, result in results_history:
+            print(f"{result}: {question}")
     elif printed_result == 'no':
         print('Thank you for playing!')
 
@@ -146,7 +136,6 @@ def play_again():
             print('Please enter yes / no')
 
 
-# Main loop to start and potentially restart the game
 while True:
     play_game()
     if not play_again():
