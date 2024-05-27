@@ -1,23 +1,9 @@
 import random
 import datetime
 
+# Function to play the game
 def play_game():
-    # Welcomes the user
-    print('''
-        ░██╗░░░░░░░██╗███████╗██╗░░░░░░█████╗░░█████╗░███╗░░░███╗███████╗  ████████╗░█████╗░  ░█████╗░░█████╗░░█████╗░██╗░░░░░
-        ░██║░░██╗░░██║██╔════╝██║░░░░░██╔══██╗██╔══██╗████╗░████║██╔════╝  ╚══██╔══╝██╔══██╗  ██╔══██╗██╔══██╗██╔══██╗██║░░░░░
-        ░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░╚═╝██║░░██║██╔████╔██║█████╗░░  ░░░██║░░░██║░░██║  ██║░░╚═╝██║░░██║██║░░██║██║░░░░░
-        ░░████╔═████║░██╔══╝░░██║░░░░░██║░░██╗██║░░██║██║╚██╔╝██║██╔══╝░░  ░░░██║░░░██║░░██║  ██║░░██╗██║░░██║██║░░██║██║░░░░░
-        ░░╚██╔╝░╚██╔╝░███████╗███████╗╚█████╔╝╚█████╔╝██║░╚═╝░██║███████╗  ░░░██║░░░╚█████╔╝  ╚█████╔╝╚█████╔╝╚█████╔╝███████╗
-        ░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚══════╝  ░░░╚═╝░░░░╚════╝░  ░╚════╝░░╚════╝░░╚════╝░╚══════╝
-
-        ███╗░░░███╗░█████╗░████████╗██╗░░██╗  ░██████╗░░█████╗░███╗░░░███╗███████╗░██████╗
-        ████╗░████║██╔══██╗╚══██╔══╝██║░░██║  ██╔════╝░██╔══██╗████╗░████║██╔════╝██╔════╝
-        ██╔████╔██║███████║░░░██║░░░███████║  ██║░░██╗░███████║██╔████╔██║█████╗░░╚█████╗░
-        ██║╚██╔╝██║██╔══██║░░░██║░░░██╔══██║  ██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░░╚═══██╗
-        ██║░╚═╝░██║██║░░██║░░░██║░░░██║░░██║  ╚██████╔╝██║░░██║██║░╚═╝░██║███████╗██████╔╝
-        ╚═╝░░░░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝  ░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝╚═════╝░️''')
-
+    # Function to prompt yes/no questions
     def yes_no(question):
         while True:
             response = input(question).lower()
@@ -28,21 +14,22 @@ def play_game():
             else:
                 print('Please enter yes / no')
 
+    # Function to display instructions
     def instruction():
         print('''In this math game you will be challenged on your statistics knowledge.
         You will be asked how many questions you want to answer, it ranges from 1-10 mathematical questions.
         You will have the option to see your overall results after you have completed the questions.''')
 
+    # Display instructions if requested
     want_instructions = yes_no('Do you want to read the instructions?:')
-
     if want_instructions == "yes":
         instruction()
 
+    # Function to get the number of questions from the user
     def question_amount():
         while True:
             try:
-                how_many = int(
-                    input('How many questions would you like to answer, please choose a number from 1 - 20: '))
+                how_many = int(input('How many questions would you like to answer, please choose a number from 1 - 20: '))
                 if 1 <= how_many <= 20:
                     return how_many
                 else:
@@ -52,6 +39,7 @@ def play_game():
 
     amount = question_amount()
 
+    # Function to prompt for the game difficulty
     def question_difficulty(difficulty):
         while True:
             diff = input(difficulty).lower()
@@ -67,6 +55,7 @@ def play_game():
     Hard
     Choose: ''')
 
+    # Function to ask the user for input number
     def ask_num():
         while True:
             try:
@@ -75,6 +64,7 @@ def play_game():
             except ValueError:
                 print("Incorrect Input!")
 
+    # Function to ask a multiplication question
     def ask_question():
         if chosen_diff == 'easy':
             x = random.randint(1, 10)
@@ -95,16 +85,19 @@ def play_game():
             print(f"Incorrect! The correct answer is {x * y}")
             return (0, f"{x} x {y} = {x*y}")
 
-    results_history = []
+    results_history = []  # Store history of questions and answers
 
     correct = 0
+    # Loop through each question
     for _ in range(amount):
         result, question = ask_question()
         results_history.append((question, "Correct" if result else "Incorrect"))
         correct += result
 
+    # Display the number of correct answers
     print(f"You got {correct} correct out of {amount}")
 
+    # Function to prompt whether to see results or not
     def player_result(result):
         while True:
             results = input(result).lower()
@@ -115,6 +108,7 @@ def play_game():
             else:
                 print('Please enter yes / no')
 
+    # Display results if requested
     printed_result = player_result("Would you like to see your results?")
     if printed_result == 'yes':
         print(f"You got {correct / amount * 100}% correct")
@@ -124,7 +118,7 @@ def play_game():
     elif printed_result == 'no':
         print('Thank you for playing!')
 
-
+# Function to ask if user wants to play again
 def play_again():
     while True:
         answer = input('Do you want to play again? ').lower()
@@ -135,7 +129,7 @@ def play_again():
         else:
             print('Please enter yes / no')
 
-
+# Main loop to start and potentially restart the game
 while True:
     play_game()
     if not play_again():
